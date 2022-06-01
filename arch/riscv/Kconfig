@@ -671,6 +671,11 @@ config MMU_SV32
 
 endmenu # "Platform type"
 
+config THEAD_ISA
+	bool "T-HEAD extension ISA in AFLAGS with -march=_xtheadc"
+	default n
+	depends on $(cc-option, -march=rv64imafdcv_xtheadc)
+
 menu "Kernel features"
 
 source "kernel/Kconfig.hz"

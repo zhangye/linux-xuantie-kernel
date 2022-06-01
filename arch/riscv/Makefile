@@ -77,6 +77,10 @@ KBUILD_CFLAGS += -march=$(subst fd,,$(riscv-march-y))
 
 KBUILD_AFLAGS += -march=$(riscv-march-y)
 
+ifeq ($(CONFIG_THEAD_ISA),y)
+KBUILD_AFLAGS += -march=rv64imafdcv_xtheadc
+endif
+
 KBUILD_CFLAGS += -mno-save-restore
 KBUILD_CFLAGS += -DCONFIG_PAGE_OFFSET=$(CONFIG_PAGE_OFFSET)
 
